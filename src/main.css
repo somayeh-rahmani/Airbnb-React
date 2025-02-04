@@ -1,0 +1,43 @@
+:root {
+  --main-bg-color: #222222;
+  --secondary-color: #ebebeb;
+  --header-brand-color: #ff385c;
+  --theme-product-color: #e00b41;
+  --subtitle-color: #6a6a6a;
+  --font-color: #222222;
+
+  --border-line-color: #dddddd;
+  --background-hover: #ebebeb;
+  --border-radius-main: 3rem;
+  --font-size-default: 0.9rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Airbnb Cereal VF", Circular, -apple-system, BlinkMacSystemFont,
+    Roboto, "Helvetica Neue", sans-serif;
+  font-size: var(--font-size-default);
+  color: var(--font-color);
+}
+input {
+  font-family: "Airbnb Cereal VF";
+  border: none;
+  background-color: transparent;
+}
+input:focus-visible {
+  outline: none;
+}
+/* Font */
+@font-face {
+  font-family: Airbnb Cereal VF;
+  src: url(../public/fonts/AirbnbCerealVF_W_Wght.woff2);
+}
+@font-face {
+  font-family: Airbnb Cereal VF Cyril;
+  src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
+}
