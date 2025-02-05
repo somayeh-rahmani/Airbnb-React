@@ -6,7 +6,7 @@ import profile from "/src/component/asset/icon/profile.svg";
 import "./Navbar.css";
 
 function Navbar() {
-  const [activeTab, setActiveTab] = useState("stays");
+  const [activeTab, setActiveTab] = useState("Homes");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
@@ -19,16 +19,16 @@ function Navbar() {
         </div>
         <div className="staysExperience">
           <button
-            className={`stays-button ${activeTab === "stays" ? "Active" : ""}`}
-            onClick={() => setActiveTab("stays")}
+            className={`stays-button ${activeTab === "Homes" ? "Active" : ""}`}
+            onClick={() => setActiveTab("Homes")}
           >
-            Stays
+            Homes
           </button>
           <button
             className={`experience-button ${
-              activeTab === "experience" ? "Active" : ""
+              activeTab === "Experiences" ? "Active" : ""
             }`}
-            onClick={() => setActiveTab("experiences")}
+            onClick={() => setActiveTab("Experiences")}
           >
             Experiences
           </button>
