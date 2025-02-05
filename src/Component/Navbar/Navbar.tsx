@@ -1,9 +1,8 @@
 import { useState } from "react";
-import Logo from "./image/logo.png";
-import global from "./icon/global.svg";
-import menu from "./icon/menu.svg";
-import profile from "./icon/profile.svg";
-
+import Logo from "/src/component/asset/image/logo.png";
+import global from "/src/component/asset/icon/global.svg";
+import menu from "/src/component/asset/icon/menu.svg";
+import profile from "/src/component/asset/icon/profile.svg";
 import "./Navbar.css";
 
 function Navbar() {

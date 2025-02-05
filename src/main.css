@@ -35,9 +35,9 @@ input:focus-visible {
 /* Font */
 @font-face {
   font-family: Airbnb Cereal VF;
-  src: url(../public/fonts/AirbnbCerealVF_W_Wght.woff2);
+  src: url(/fonts/AirbnbCerealVF_W_Wght.woff2);
 }
 @font-face {
   font-family: Airbnb Cereal VF Cyril;
-  src: url(../public/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
+  src: url(/fonts/AirbnbCerealVF_Cyril_W_Wght.woff2);
 }
