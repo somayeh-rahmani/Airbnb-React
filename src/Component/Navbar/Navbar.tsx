@@ -10,13 +10,6 @@ function Navbar() {
   const [activeTab, setActiveTab] = useState("stays");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleStayExperienceTab = (event: string) => {
-    setActiveTab(event);
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen((pre) => !pre);
-  };
   return (
     <div>
       <nav className="navpart">
@@ -28,7 +21,7 @@ function Navbar() {
         <div className="staysExperience">
           <button
             className={`stays-button ${activeTab === "stays" ? "Active" : ""}`}
-            onClick={() => handleStayExperienceTab("stays")}
+            onClick={() => setActiveTab("stays")}
           >
             Stays
           </button>
@@ -36,7 +29,7 @@ function Navbar() {
             className={`experience-button ${
               activeTab === "experience" ? "Active" : ""
             }`}
-            onClick={() => handleStayExperienceTab("experiences")}
+            onClick={() => setActiveTab("experiences")}
           >
             Experiences
           </button>
@@ -52,7 +45,10 @@ function Navbar() {
           </div>
         </div>
         <div className="drop-parent">
-          <button className="menu drop-show" onClick={toggleDropdown}>
+          <button
+            className="menu drop-show"
+            onClick={() => setIsDropdownOpen((item) => !item)}
+          >
             <img className="img-menu drop-show" src={menu} />
             <img className="img-profile drop-show" src={profile} />
           </button>
