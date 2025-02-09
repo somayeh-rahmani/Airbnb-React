@@ -8,7 +8,7 @@ import "./Navbar.css";
 function Navbar() {
   const [activeTab, setActiveTab] = useState("Homes");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  console.log(isDropdownOpen);
   return (
     <div>
       <nav className="navpart">
@@ -45,11 +45,11 @@ function Navbar() {
         </div>
         <div className="drop-parent">
           <button
-            className="menu drop-show"
+            className="menu"
             onClick={() => setIsDropdownOpen((item) => !item)}
           >
-            <img className="img-menu drop-show" src={menu} />
-            <img className="img-profile drop-show" src={profile} />
+            <img className="img-menu" src={menu} />
+            <img className="img-profile" src={profile} />
           </button>
           {/* DropDown Content */}
           {isDropdownOpen && (

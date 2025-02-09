@@ -111,7 +111,6 @@
 .drop-dowoncontent {
   cursor: pointer;
   position: absolute;
-  display: none;
   background-color: #fff;
   min-width: 240px;
   top: 50%;
@@ -122,6 +121,8 @@
   margin-top: 34px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
   padding: 8px 0;
+  display: inline-flex;
+  flex-direction: column;
 }
 .drop-dowoncontent .dropdown-line {
   background: #dddddd;
@@ -140,11 +141,6 @@
 }
 .drop-dowoncontent a:hover:not(:active) {
   background-color: #f7f7f7;
-}
-
-.drop-dowoncontent.show {
-  display: inline-flex;
-  flex-direction: column;
 }
 
 .menu {
