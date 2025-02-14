@@ -7,22 +7,29 @@ import {
 } from "react";
 import Data from "./Region/Data.tsx";
 import Region from "./Region/Region.tsx";
+import close from "/src/asset/icon/close.svg";
 
 const Wherepart = forwardRef((_, ref) => {
   const [openregeion, setOpenregion] = useState(false);
   const innerSearch = useRef<HTMLDivElement | null>(null);
+  const [inputsearch, setInputsearch] = useState("");
 
   useImperativeHandle(ref, () => ({
     getInnerrSearch: () => innerSearch.current,
   }));
 
   useEffect(() => {
-    document.addEventListener("click", function (e) {
+    document.addEventListener("click", function (e: MouseEvent) {
       if (!innerSearch?.current?.contains(e.target as Node)) {
         setOpenregion(false);
       }
     });
   }, []);
+
+  const handleSelectRegion = (name: string) => {
+    setInputsearch(name);
+    setOpenregion(false);
+  };
   return (
     <div
       className="where_section active_box "
@@ -33,10 +40,15 @@ const Wherepart = forwardRef((_, ref) => {
       <input
         className="destination subtitle_color"
         placeholder="search destinations"
+        value={inputsearch}
+        onChange={(e) => setInputsearch(e.target.value)}
       />
-      <div className="close_btn ">
-        <img src="./public/icons/icons8-close.svg" alt="close-icon" />
-      </div>
+
+      {inputsearch && (
+        <div className="clear_btn" onClick={() => setInputsearch("")}>
+          <img src={close} alt="close-icon" />
+        </div>
+      )}
 
       {openregeion && (
         <div className="region_wrapper ">
@@ -47,7 +59,12 @@ const Wherepart = forwardRef((_, ref) => {
             <div className="region_items">
               {Data.map((item: any) => {
                 return (
-                  <Region key={item.id} name={item.name} image={item.image} />
+                  <Region
+                    key={item.id}
+                    name={item.name}
+                    image={item.image}
+                    onSelect={handleSelectRegion}
+                  />
                 );
               })}
             </div>

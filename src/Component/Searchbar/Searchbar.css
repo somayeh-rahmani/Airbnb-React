@@ -24,7 +24,7 @@ hover searchbox
   padding: 1rem 5rem 1rem 2rem;
   position: relative;
 }
-.close_btn {
+.clear_btn {
   position: absolute;
   display: flex;
   right: 1rem;
@@ -35,13 +35,13 @@ hover searchbox
   border-radius: 100%;
   background-color: transparent;
 }
-.close_btn img {
+.clear_btn img {
   align-items: center;
   width: 0.8rem;
   height: 0.8rem;
 }
 
-.close_btn:hover {
+.clear_btn:hover {
   background-color: var(--border-line-color);
 }
 .active_section {
