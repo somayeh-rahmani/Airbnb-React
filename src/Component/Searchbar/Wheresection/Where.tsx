@@ -44,7 +44,7 @@ const Wherepart = forwardRef((_, ref) => {
         onChange={(e) => setInputsearch(e.target.value)}
       />
 
-      {inputsearch && (
+      {inputsearch && openregeion && (
         <div className="clear_btn" onClick={() => setInputsearch("")}>
           <img src={close} alt="close-icon" />
         </div>
