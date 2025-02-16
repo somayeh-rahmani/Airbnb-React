@@ -1,7 +1,9 @@
 import { useState } from "react";
+import "./checkin.css";
 
 const Checkin = () => {
   const [opencheckin, setOpenCheckin] = useState(false);
+  const [activeOption, setActiveOption] = useState("Dates");
   return (
     <div
       className="checkin_section active_box"
@@ -12,9 +14,19 @@ const Checkin = () => {
 
       {opencheckin && (
         <div className="checkin-container">
-          <button className="toggle-option active">Dates</button>
-          <button className="toggle-option">Months</button>
-          <button className="toggle-option">Flexible</button>
+          <div className="button-contain">
+            {["Dates", "Months", "Felixible"].map((Option) => (
+              <button
+                key={Option}
+                className={`toggle-option ${
+                  activeOption === Option ? "Active" : ""
+                }`}
+                onClick={() => setActiveOption(Option)}
+              >
+                {Option}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>
