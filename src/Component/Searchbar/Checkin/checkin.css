@@ -2,6 +2,9 @@
   position: relative;
 }
 .checkin-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   margin-top: 12px;
   padding: 1rem 2rem;
@@ -12,11 +15,11 @@
   top: 100%;
   box-shadow: 0 3px 12px 0 rgb(0 0 0 / 0.15);
   margin-block-start: 12px;
-  left: 0;
   max-height: 100vh;
   width: 600px;
 }
 .button-contain {
+  padding: 10px 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -26,7 +29,8 @@
   border-radius: var(--border-radius-main);
 }
 .toggle-option {
-  padding: 10px 20px;
+  padding: 8px 12px;
+  margin: 4px 0px 4px 2px;
   border-radius: 20px;
   cursor: pointer;
   background: transparent;
@@ -35,8 +39,10 @@
   font-size: 16px;
 }
 
-.toggle-option .active {
-  background: white;
+.toggle-option.active {
+  background: #fff;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  font-weight: bold;
+}
+.toggle-option:not(.active):hover {
+  background-color: var(--background-hover);
 }
