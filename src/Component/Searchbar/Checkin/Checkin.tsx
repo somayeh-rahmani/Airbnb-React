@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import "./checkin.css";
 import "react-dates/initialize";
-import { DateRangePicker } from "react-dates";
+import { DayPickerRangeController } from "react-dates";
 import moment from "moment";
 import "global";
+import DateOptionBtn from "./DateOption";
 
 const Checkin = () => {
   const [opencheckin, setOpenCheckin] = useState(false);
@@ -13,16 +13,14 @@ const Checkin = () => {
   //data picker
   const [startDate, setStartDate] = useState<moment.Moment | null>(null);
   const [endDate, setEndDate] = useState<moment.Moment | null>(null);
-  // const [focusedInput, setFocusedInput] = useState<FocusedInputShape | null>(
-  //   null
-  // );
-  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [focusedInput, setFocusedInput] = useState<any>(null);
+  const [showDatePicker, setShowDatePicker] = useState(true);
+  const [dateOptionBtn, setDateOptionBtn] = useState<number>(0);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (!checkinRef?.current?.contains(e.target as Node)) {
         setOpenCheckin(false);
-        setShowDatePicker(false);
       }
     };
     document.addEventListener("click", handleClickOutside);
@@ -50,7 +48,7 @@ const Checkin = () => {
       {opencheckin && (
         <div className="checkin-container">
           <div className="button-contain">
-            {["Dates", "Months", "Felixible"].map((Option) => (
+            {["Dates", "Months", "Felexible"].map((Option) => (
               <button
                 key={Option}
                 className={`toggle-option ${
@@ -58,7 +56,7 @@ const Checkin = () => {
                 }`}
                 onClick={() => {
                   setActiveOption(Option);
-                  if (Option === "dates") {
+                  if (Option === "Dates") {
                     setShowDatePicker(true);
                   } else {
                     setShowDatePicker(false);
@@ -70,26 +68,35 @@ const Checkin = () => {
             ))}
           </div>
           {showDatePicker && (
-            <DateRangePicker
-              startDate={startDate}
-              startDateId="start_date_id"
-              endDate={endDate}
-              endDateId="end_Date_id"
-              onDateChange={({
-                startDate,
-                endDate,
-              }: {
-                startDate: moment.Moment | null;
-                endDate: moment.Moment | null;
-              }) => {
-                setStartDate(startDate);
-                setEndDate(endDate);
-              }}
-              // focusedInput={focusedInput}
-              // onFocusChange={(focused) => setFocusedInput(focused)}
-              numberofMonth={12}
-              isOutsideRange={() => false}
-            />
+            <>
+              <DayPickerRangeController
+                startDate={startDate}
+                startDateId="start_date_id"
+                endDate={endDate}
+                endDateId="end_Date_id"
+                onDateChange={({
+                  startDate,
+                  endDate,
+                }: {
+                  startDate: moment.Moment | null;
+                  endDate: moment.Moment | null;
+                }) => {
+                  setStartDate(startDate);
+                  setEndDate(endDate);
+                }}
+                focusedInput={focusedInput}
+                onFocusChange={(focused: any) => setFocusedInput(focused)}
+                numberOfMonths={2}
+                // isOutsideRange={() => false}
+                hideKeyboardShortcutsPanel={true}
+                noBorder={true}
+                verticalSpacing={8}
+              />
+              <DateOptionBtn
+                onSelect={(value) => setDateOptionBtn(value)}
+                selectedValue={dateOptionBtn}
+              />
+            </>
           )}
         </div>
       )}

@@ -7,6 +7,7 @@ Search-box
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .inner_search_box {
   border: 1px solid var(--border-line-color);
@@ -16,6 +17,7 @@ Search-box
   border-radius: var(--border-radius-main);
   font-size: 0.75rem;
   font-weight: 500;
+  position: relative;
 }
 /* 
 hover searchbox
@@ -100,7 +102,6 @@ hover searchbox
 .checkout_section,
 .checkin_section {
   padding: 1rem 3rem 1rem 1.5rem;
-  position: relative;
 }
 .date_section {
   padding: 1rem 9rem 1rem 1.5rem;
@@ -109,7 +110,6 @@ hover searchbox
   padding: 1rem 0.5rem 1rem 1.5rem;
   display: flex;
   align-items: center;
-  position: relative;
 }
 .who_content {
   padding-right: 10rem;
@@ -195,4 +195,122 @@ Search-box Dropdown
   border-radius: 1rem;
   margin-bottom: 0.4rem;
   transition: transform 0.25s ease;
+}
+
+/* check in DropDown section style */
+.checkin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin-top: 12px;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  background-color: #ffff;
+  z-index: 1;
+  right: 0;
+  top: 100%;
+  box-shadow: 0 3px 12px 0 rgb(0 0 0 / 0.15);
+  margin-block-start: 12px;
+  left: 0;
+}
+.button-contain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 303px;
+  background-color: #dddddd;
+  border-radius: var(--border-radius-main);
+}
+.toggle-option {
+  padding: 8px 12px;
+  margin: 4px 2px 4px 0px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+}
+
+.toggle-option.active {
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  border: 1px solid #dddddd;
+  border-radius: 100px;
+  margin: 4px 2px 4px 0px;
+}
+.toggle-option:not(.active):hover {
+  background-color: var(--background-hover);
+}
+/* check in */
+
+.CalendarDay__selected {
+  background: #dddddd;
+  color: white;
+}
+
+.CalendarDay__default {
+  border: 0px;
+  color: #222;
+  background: #fff;
+}
+.CalendarDay__default:hover {
+  background: #e4e7e7;
+  border: none;
+  color: inherit;
+  border-radius: 50%;
+}
+
+.CalendarMonth_caption {
+  color: #222;
+  font-size: 18px;
+  font-weight: normal !important;
+  text-align: center;
+  padding-top: 22px;
+  padding-bottom: 37px;
+  caption-side: initial;
+  font-family: "Airbnb Cereal VF", Circular, -apple-system, BlinkMacSystemFont,
+    Roboto, "Helvetica Neue", sans-serif;
+}
+.DayPickerNavigation_button__horizontalDefault {
+  position: absolute;
+  top: 18px;
+  line-height: 0.78;
+  padding: 6px 9px;
+  border: none;
+}
+
+.DayPickerNavigation_button__default:hover {
+  border: none;
+  background-color: #e4e7e7;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+}
+/*Date Option component style*/
+.flexible-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.flexible-btn {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.flexible-btn.active {
+  background-color: #fff;
+  color: #222;
+  border-color: #222;
+}
+.flexible-btn:hover {
+  border-color: #222;
 }

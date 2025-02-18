@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import "react-dates/lib/css/_datepicker.css";
 import "./Searchbar.css";
 import Checkin from "./Checkin/Checkin.tsx";
 import Checkout from "./Checkout/Checkout.tsx";
