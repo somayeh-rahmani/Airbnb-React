@@ -3,6 +3,7 @@ import "./checkin.css";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import moment from "moment";
+import "global";
 
 const Checkin = () => {
   const [opencheckin, setOpenCheckin] = useState(false);
