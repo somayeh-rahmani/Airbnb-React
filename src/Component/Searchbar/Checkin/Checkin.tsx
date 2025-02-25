@@ -9,6 +9,7 @@ const Checkin = () => {
   const [opencheckin, setOpenCheckin] = useState(false);
   const [activeOption, setActiveOption] = useState("Dates");
   const checkinRef = useRef<HTMLDivElement>(null);
+  const [inputDate, setInputDate] = useState("");
 
   //data picker
   const [startDate, setStartDate] = useState<moment.Moment | null>(null);
@@ -43,12 +44,15 @@ const Checkin = () => {
         className="checkin_date subtitle_color"
         placeholder="Add dates"
         onClick={() => setOpenCheckin(true)}
+        value={inputDate}
+        onChange={(e) => setInputDate(e.target.value)}
+        readOnly
       />
 
       {opencheckin && (
         <div className="checkin-container">
           <div className="button-contain">
-            {["Dates", "Months", "Felexible"].map((Option) => (
+            {["Dates", "Felexible"].map((Option) => (
               <button
                 key={Option}
                 className={`toggle-option ${
@@ -83,6 +87,10 @@ const Checkin = () => {
                 }) => {
                   setStartDate(startDate);
                   setEndDate(endDate);
+                  if (startDate && !endDate) {
+                    setInputDate(startDate.format("YYYY-MM-DD"));
+                    setFocusedInput(endDate);
+                  }
                 }}
                 focusedInput={focusedInput}
                 onFocusChange={(focused: any) => setFocusedInput(focused)}
@@ -91,6 +99,7 @@ const Checkin = () => {
                 hideKeyboardShortcutsPanel={true}
                 noBorder={true}
                 verticalSpacing={8}
+                // isDayHighlighted
               />
               <DateOptionBtn
                 onSelect={(value) => setDateOptionBtn(value)}
