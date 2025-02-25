@@ -1,6 +1,8 @@
 import { useState } from "react";
+import "react-dates/initialize";
 import { DayPickerRangeController } from "react-dates";
 import moment from "moment";
+import "global";
 
 interface DatePickerProps {
   startDate: moment.Moment | null;

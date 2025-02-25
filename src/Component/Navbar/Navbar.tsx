@@ -8,7 +8,6 @@ import "./Navbar.css";
 function Navbar() {
   const [activeTab, setActiveTab] = useState("Homes");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  console.log(isDropdownOpen);
   return (
     <div>
       <nav className="navpart">
