@@ -67,7 +67,7 @@ const Whopart = () => {
       onClick={() => setOpenWho(true)}
       ref={whoRef}
     >
-      <div className="parent-who">
+      <div className="parent-who" ref={whoRef}>
         <div className="who_content">
           <div className="who_title">Who</div>
           <div className="add_guests subtitle_color">
@@ -76,10 +76,11 @@ const Whopart = () => {
               : "Add guests"}
           </div>
         </div>
-        {openWho && (
+        {openWho && whoRef && (
           <div
             className="clear_btn"
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               setOpenWho(false);
             }}
           >
