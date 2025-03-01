@@ -23,8 +23,11 @@ Search-box
 hover searchbox
 */
 .where_section {
-  padding: 1rem 5rem 1rem 2rem;
-  position: relative;
+  padding: 1rem;
+  width: 251px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .clear_btn {
@@ -108,23 +111,23 @@ hover searchbox
 .date_section {
   padding: 1rem 9rem 1rem 1.5rem;
 }
+.parent-who {
+  display: flex;
+  width: 200px;
+  align-items: center;
+  justify-content: space-between;
+}
 .who_section {
-  padding: 1rem 0.5rem 1rem 1.5rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
-}
-.who_content {
-  padding-right: 10rem;
 }
 .subtitle_color {
   color: var(--subtitle-color);
   font-size: var(--font-size-default);
   font-weight: normal;
 }
-.search_btn {
-  position: absolute;
-  right: 0.5rem;
-}
+
 .search_btn button {
   width: 3rem;
   height: 3rem;
@@ -156,6 +159,7 @@ Search-box Dropdown
   border-radius: 2rem;
   box-shadow: 0 3px 12px 0 rgb(0 0 0/0.15);
   padding: 2rem 1.5rem 1.5rem;
+  top: 100%;
 }
 .region_selection {
   width: 24rem;

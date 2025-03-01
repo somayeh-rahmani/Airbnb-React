@@ -36,14 +36,15 @@ const Wherepart = forwardRef((_, ref) => {
       onClick={() => setOpenregion(true)}
       ref={innerSearch}
     >
-      <div className="where-title">Where</div>
-      <input
-        className="destination subtitle_color"
-        placeholder="search destinations"
-        value={inputsearch}
-        onChange={(e) => setInputsearch(e.target.value)}
-      />
-
+      <div>
+        <div className="where-title">Where</div>
+        <input
+          className="destination subtitle_color"
+          placeholder="search destinations"
+          value={inputsearch}
+          onChange={(e) => setInputsearch(e.target.value)}
+        />
+      </div>
       {inputsearch && openregeion && (
         <div className="clear_btn" onClick={() => setInputsearch("")}>
           <img src={close} alt="close-icon" />

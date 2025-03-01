@@ -67,25 +67,26 @@ const Whopart = () => {
       onClick={() => setOpenWho(true)}
       ref={whoRef}
     >
-      <div className="who_content">
-        <div className="who_title">Who</div>
-        <div className="add_guests subtitle_color">
-          {totalGuests > 0
-            ? `${totalGuests} guests ${infantText} ${petText}`
-            : "Add guests"}
+      <div className="parent-who">
+        <div className="who_content">
+          <div className="who_title">Who</div>
+          <div className="add_guests subtitle_color">
+            {totalGuests > 0
+              ? `${totalGuests} guests ${infantText} ${petText}`
+              : "Add guests"}
+          </div>
         </div>
+        {openWho && (
+          <div
+            className="clear_btn"
+            onClick={() => {
+              setOpenWho(false);
+            }}
+          >
+            <img src={close} alt="close-icon" />
+          </div>
+        )}
       </div>
-      {openWho && (
-        <div
-          className="clear_whobtn"
-          onClick={() => {
-            setOpenWho(false);
-          }}
-        >
-          <img src={close} alt="close-icon" />
-        </div>
-      )}
-
       {/*drop Down */}
 
       {openWho && (
