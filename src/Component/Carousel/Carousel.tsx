@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./carousel.css";
 
 interface Category {
   id: number;
@@ -43,42 +44,34 @@ export default function Carousel() {
   };
 
   return (
-    <div>
+    <div className="main_content">
       {/* Categories */}
-      <div id="carousel" className="cat-carousel">
-        {categories.map((category) => (
-          <figure
-            key={category.id}
-            className="cursor-pointer text-center"
-            onClick={() => handleCategoryClick(category.id)}
-          >
-            <img
-              src={category.icon_url}
-              alt={category.name}
-              className="w-16 h-16"
-            />
-            <figcaption>{category.name}</figcaption>
-          </figure>
-        ))}
+      <div className="carousel">
+        <div className="carousel_wrapper">
+          {categories.map((category) => (
+            <figure
+              key={category.id}
+              className="cursor-pointer text-center"
+              onClick={() => handleCategoryClick(category.id)}
+            >
+              <img src={category.icon_url} alt={category.name} />
+              <figcaption>{category.name}</figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
 
-      {/*  Rooms */}
-      <div id="room_container" className="grid grid-cols-3 gap-4 p-4">
+      {/* Rooms */}
+      <div id="room_container" className="room_grid">
         {rooms.map((room) => (
-          <div key={room.id} className="room border p-4 rounded shadow">
+          <div key={room.id} className="room">
             <div className="image_container">
-              <img
-                src={JSON.parse(room.images)[0]}
-                alt={room.name}
-                className="w-full h-32 object-cover"
-              />
+              <img src={JSON.parse(room.images)[0]} alt={room.name} />
             </div>
             <div>
-              <h3 className="text-lg font-bold">{room.name}</h3>
+              <h3>{room.name}</h3>
               <p>{room.location}</p>
-              <p className="text-green-600">
-                ${room.price_per_night} per night
-              </p>
+              <p>${room.price_per_night} per night</p>
             </div>
           </div>
         ))}

@@ -7,6 +7,7 @@ const App = () => {
     <div>
       <Navbar />
       <Searchbar />
+      <div className="divider"></div>
       <Carousel />
     </div>
   );

@@ -5,7 +5,7 @@ import { resolve } from "path";
 export default defineConfig({
   plugins: [react()],
   define: {
-    "process.env": {}, // اگر از process.env استفاده می‌کنید
+    "process.env": {},
     global: {},
   },
   resolve: {
