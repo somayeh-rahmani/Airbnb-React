@@ -26,12 +26,9 @@ hover searchbox
   padding: 1rem 5rem 1rem 2rem;
   position: relative;
 }
+
 .clear_btn {
-  position: absolute;
   display: flex;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
   cursor: pointer;
   padding: 0.4rem;
   border-radius: 100%;
@@ -98,10 +95,15 @@ hover searchbox
 .active_section + .header_divider {
   opacity: 0;
 }
-
+.dates-text {
+  margin-right: 30px;
+}
 .checkout_section,
 .checkin_section {
-  padding: 1rem 3rem 1rem 1.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .date_section {
   padding: 1rem 9rem 1rem 1.5rem;
@@ -319,3 +321,120 @@ Search-box Dropdown
   font-weight: 500;
   font-size: 14px;
 }
+/*Drop Down Who */
+.who-container {
+  position: absolute;
+  margin-top: 12px;
+  display: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  background-color: #ffff;
+  z-index: 1;
+  box-shadow: 0 3px 12px 0 rgb(0 0 0 / 0.15);
+  right: 0;
+  top: 100%;
+}
+.who-around {
+  width: 342px;
+  padding: 0 6px;
+}
+.who-container.show-dropdown {
+  display: inline-flex;
+}
+.Adult-part,
+.children_part,
+.infants_part {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 24px 4px 24px 0;
+  border-bottom: 1px solid #ebebeb;
+}
+.pets_part {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 24px 4px 24px 0;
+}
+.title-select h3 {
+  font-size: 16px;
+  color: #222222;
+  font-weight: inherit;
+}
+.title-select span {
+  font-size: 14px;
+  color: #6a6a6a;
+  font-family: "Airbnb Cereal VF Cyril";
+  font-weight: normal;
+}
+
+.title-select span a {
+  font-size: 14px;
+  color: #6a6a6a;
+  font-family: "Airbnb Cereal VF Cyril";
+  font-weight: normal;
+  text-decoration: underline;
+  font-weight: 500 !important;
+}
+
+.button-select {
+  width: 104px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Airbnb Cereal VF Cyril";
+  color: #222222;
+  font-size: 1rem;
+}
+.button-select button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #ffff;
+  border: 1px solid #b0b0b0;
+  height: 32px;
+  width: 32px;
+  padding: 0;
+  color: #6a6a6a;
+}
+.button-select button:disabled {
+  background-color: #ffffff;
+  cursor: not-allowed;
+  border-color: #ebebeb;
+}
+.button-select button:disabled:hover {
+  border-color: #ebebeb;
+}
+.button-select button:disabled span img {
+  color: #ebebeb;
+  fill: currentColor;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.button-select button:hover {
+  border: 1px solid black;
+}
+.button-select button img {
+  display: block;
+  height: 12px;
+  width: 12px;
+  fill: currentcolor;
+  cursor: pointer;
+  color: #6a6a6a;
+}
+.button-select button span {
+  height: 22px;
+  width: 22px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* End of who Drop Down style part */

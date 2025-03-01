@@ -16,7 +16,6 @@ const DatePickerComponent = () => {
   const [endDate, setEndDate] = useState<moment.Moment | null>(null);
   const [showDatePicker, setShowDatePicker] = useState(true);
   const [dateOptionBtn, setDateOptionBtn] = useState<number>(0);
-  const [showCheckinCloseBtn, setShowCheckinCloseBtn] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -28,7 +27,6 @@ const DatePickerComponent = () => {
       ) {
         setOpenCheckin(false);
         setOpenCheckout(false);
-        setShowCheckinCloseBtn(false);
       }
     };
     document.addEventListener("click", handleClickOutside);
@@ -36,39 +34,33 @@ const DatePickerComponent = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
-  useEffect(() => {
-    if (startDate) {
-      setShowCheckinCloseBtn(true);
-    }
-  }, [startDate]);
-
   return (
     <>
       {/* Checkin section */}
       <div className="checkin_section active_box" ref={checkinRef}>
-        <div
-          className="checkin_title"
-          onClick={() => {
-            setOpenCheckin(true);
-          }}
-        >
-          Check in
+        <div className="dates-text">
+          <div
+            className="checkin_title"
+            onClick={() => {
+              setOpenCheckin(true);
+            }}
+          >
+            Check in
+          </div>
+          <div
+            className={`checkin_date subtitle_color ${
+              startDate ? "selected-date" : ""
+            }`}
+            onClick={() => setOpenCheckin(true)}
+          >
+            {startDate ? startDate.format("YYYY-MM-DD") : "Add Date"}
+          </div>
         </div>
-        <div
-          className={`checkin_date subtitle_color ${
-            startDate ? "selected-date" : ""
-          }`}
-          onClick={() => setOpenCheckin(true)}
-        >
-          {startDate ? startDate.format("YYYY-MM-DD") : "Add Date"}
-        </div>
-        {showCheckinCloseBtn && (
+        {openCheckin && startDate && (
           <div
             className="clear_btn"
             onClick={() => {
               setStartDate(null);
-              setShowCheckinCloseBtn(false);
             }}
           >
             <img src={close} alt="close-icon" />
@@ -117,22 +109,34 @@ const DatePickerComponent = () => {
       <div className="header_divider"></div>
       {/* checkout section */}
       <div className="checkout_section active_box" ref={checkoutRef}>
-        <div
-          className="checkout_title"
-          onClick={() => {
-            setOpenCheckout(true);
-          }}
-        >
-          Check out
+        <div className="dates-text">
+          <div
+            className="checkout_title"
+            onClick={() => {
+              setOpenCheckout(true);
+            }}
+          >
+            Check out
+          </div>
+          <div
+            className={`checkout_date subtitle_color ${
+              endDate ? "selected-date" : ""
+            }`}
+            onClick={() => setOpenCheckout(true)}
+          >
+            {endDate ? endDate.format("YYYY-MM-DD") : "Add dates"}
+          </div>
         </div>
-        <div
-          className={`checkout_date subtitle_color ${
-            endDate ? "selected-date" : ""
-          }`}
-          onClick={() => setOpenCheckout(true)}
-        >
-          {endDate ? endDate.format("YYYY-MM-DD") : "Add dates"}
-        </div>
+        {openCheckout && endDate && (
+          <div
+            className="clear_btn"
+            onClick={() => {
+              setEndDate(null);
+            }}
+          >
+            <img src={close} alt="close-icon" />
+          </div>
+        )}
         {openCheckout && (
           <div className="checkin-container">
             <div className="button-contain">
