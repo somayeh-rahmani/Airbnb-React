@@ -1,7 +1,7 @@
 import Navbar from "/src/component/Navbar/Navbar.tsx";
 import Searchbar from "/src/component/Searchbar/Searchbar.tsx";
 import Carousel from "/src/component/Carousel/Carousel.tsx";
-
+import Inspiration from "./component/Inspiration/Inspiration";
 const App = () => {
   return (
     <div>
@@ -9,6 +9,7 @@ const App = () => {
       <Searchbar />
       <div className="divider"></div>
       <Carousel />
+      <Inspiration />
     </div>
   );
 };
