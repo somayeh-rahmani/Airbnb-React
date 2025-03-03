@@ -125,6 +125,7 @@ const rooms_ = [
       "/src/asset/rooms/sample2.jpg",
       "/src/asset/rooms/sample1.jpg",
       "/src/asset/rooms/sample2.jpg",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-831206467775478179/original/85e999e9-2529-44c3-a774-040b2c2336d5.jpeg?im_w=720&im_format=avif",
     ],
   },
   {
@@ -136,13 +137,18 @@ const rooms_ = [
       "/src/asset/rooms/sample2.jpg",
       "/src/asset/rooms/sample1.jpg",
       "/src/asset/rooms/sample2.jpg",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-831206467775478179/original/85e999e9-2529-44c3-a774-040b2c2336d5.jpeg?im_w=720&im_format=avif",
     ],
   },
   {
     name: "City Apartment",
     location: "New York, NY",
     price_per_night: 300,
-    images: ["/src/asset/rooms/sample1.jpg", "/src/asset/rooms/sample2.jpg"],
+    images: [
+      "/src/asset/rooms/sample1.jpg",
+      "/src/asset/rooms/sample2.jpg",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-831206467775478179/original/85e999e9-2529-44c3-a774-040b2c2336d5.jpeg?im_w=720&im_format=avif",
+    ],
   },
   {
     name: "Lakefront Cottage",
@@ -469,6 +475,9 @@ const seedCategories = async (db) => {
 const seedRooms = async (db) => {
   const rooms = rooms_;
   for (const room of rooms) {
+    // const updatedImages = room.images.map(
+    //   (img) => img.replace("old-path/", "new-path/") // جایگزین مسیر قدیمی با جدید
+    // );
     const exists = await db.get(`SELECT id FROM rooms WHERE name = ?`, [
       room.name,
     ]);

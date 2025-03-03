@@ -4,10 +4,19 @@ Carousel Items
 -----------------------------------
 */
 .main_content {
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
+.carousel-container {
+  display: flex;
+  align-items: center;
+  column-gap: 22px;
+}
+
 .carousel {
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   position: relative;
 }
@@ -15,9 +24,8 @@ Carousel Items
 .carousel_wrapper {
   display: flex;
   gap: 2rem;
-  justify-content: center;
   align-items: center;
-  overflow-x: auto;
+  overflow: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
@@ -41,26 +49,40 @@ Carousel Items
   color: var(--subtitle-color);
 }
 .carousel button {
-  position: absolute;
   width: 2rem;
   height: 2rem;
-  top: 50%;
   transform: translateY(-50%);
   background-color: #fff;
-  border: none;
   cursor: pointer;
   padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.carousel_wrapper .next,
-.carousel_wrapper .prev {
+.next,
+.prev {
   border-radius: 50%;
   border: 1px solid var(--border-line-color);
 }
-.carousel_wrapper .next {
+.next {
   right: 1rem;
 }
-.carousel_wrapper .prev {
+.prev {
   left: 1rem;
+}
+.filter_button button {
+  border: 1px solid #dddd;
+  background-color: #ffff;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 12px;
+  padding: 7px 0px;
+  height: 48px;
+  width: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 6px;
 }
 
 /* room part style */
@@ -83,4 +105,14 @@ Carousel Items
   align-items: flex-start;
   flex-wrap: nowrap;
   gap: 20px;
+}
+.info-room {
+  font-family: "Airbnb Cereal VF";
+  margin: 10px 0;
+}
+.room-location {
+  color: #6a6a6a;
+}
+.room-night {
+  font-weight: 500;
 }
