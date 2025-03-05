@@ -124,7 +124,6 @@ const Inspiration = () => {
             </div>
           </div>
         </div>
-        <div className="divider"></div>
       </div>
     </>
   );
