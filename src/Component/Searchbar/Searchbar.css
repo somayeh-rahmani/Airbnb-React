@@ -18,13 +18,14 @@ Search-box
   font-size: 0.75rem;
   font-weight: 500;
   position: relative;
+  width: 850px;
 }
 /* 
 hover searchbox
 */
 .where_section {
   padding: 1rem;
-  width: 251px;
+  flex: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,6 +105,7 @@ hover searchbox
 .checkout_section,
 .checkin_section {
   padding: 1rem;
+  flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -116,11 +118,13 @@ hover searchbox
   width: 200px;
   align-items: center;
   justify-content: space-between;
+  padding: 1rem;
 }
 .who_section {
-  padding: 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex: 2;
 }
 .subtitle_color {
   color: var(--subtitle-color);
@@ -128,17 +132,20 @@ hover searchbox
   font-weight: normal;
 }
 
-.search_btn button {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 1.5rem;
+.search_btn {
+  border-radius: 50%;
   background-color: var(--header-brand-color, var(--theme-product-color));
-  color: #fff;
-  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: width 0.2s ease;
+  padding: 16px;
+  margin-right: 1rem;
+}
+
+.searchImg {
+  width: 16px;
+  height: 16px;
 }
 
 .search_content {

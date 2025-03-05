@@ -47,3 +47,7 @@ input:focus-visible {
   background: rgba(204, 204, 204, 0.7);
   margin: 20px 0;
 }
+
+.mainContent{
+  padding: 0px 80px;
+}
