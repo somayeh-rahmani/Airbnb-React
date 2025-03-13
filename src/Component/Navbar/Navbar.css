@@ -7,25 +7,21 @@
 }
 
 /* logo style */
-.logo{
-  flex:1;
+.logo {
+  flex: 1;
 }
-.logo a {
-  display: block;
-  width: 118px;
-  height: 64px;
-}
+
 .logo img {
-  width: 100%;
-  height: auto;
+  width: 102px;
+  height: 38px;
 }
 .staysExperience {
-  gap: 20px;
+  gap: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-  flex:1;
+  flex: 1;
 }
 .staysExperience button {
   font-size: 1rem;
@@ -62,7 +58,7 @@
   height: 100%;
 }
 
-.rightNav{
+.rightNav {
   display: flex;
   justify-content: end;
   align-items: center;
@@ -76,6 +72,7 @@
   color: #222;
   border-radius: 2rem;
   font-family: "Airbnb Cereal VF";
+  font-weight: 500;
 }
 
 .home a:hover {
@@ -113,7 +110,9 @@
   padding: 8px 8px 8px 14px;
   background-color: #fff;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
+  width: 85.33px;
+  height: 48px;
 }
 .drop-dowoncontent {
   cursor: pointer;

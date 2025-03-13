@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Logo from "/src/asset/image/logo.png";
+import Logo from "/src/asset/image/logo.svg";
 import global from "/src/asset/icon/global.svg";
 import menu from "/src/asset/icon/menu.svg";
 import profile from "/src/asset/icon/profile.svg";
@@ -19,13 +19,16 @@ function Navbar() {
         <div className="staysExperience">
           <button
             className={`stays-button ${activeTab === "Homes" ? "Active" : ""}`}
-            onClick={() => setActiveTab("Homes")}>
-            Homes
+            onClick={() => setActiveTab("Homes")}
+          >
+            Stays
           </button>
           <button
-            className={`experience-button ${activeTab === "Experiences" ? "Active" : ""
-              }`}
-            onClick={() => setActiveTab("Experiences")}>
+            className={`experience-button ${
+              activeTab === "Experiences" ? "Active" : ""
+            }`}
+            onClick={() => setActiveTab("Experiences")}
+          >
             Experiences
           </button>
         </div>
@@ -43,7 +46,8 @@ function Navbar() {
           <div className="drop-parent">
             <button
               className="menu"
-              onClick={() => setIsDropdownOpen((item) => !item)}>
+              onClick={() => setIsDropdownOpen((item) => !item)}
+            >
               <img className="img-menu" src={menu} />
               <img className="img-profile" src={profile} />
             </button>
