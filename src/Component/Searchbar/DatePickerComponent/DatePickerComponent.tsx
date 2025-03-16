@@ -44,7 +44,7 @@ const DatePickerComponent = () => {
 
   return (
     <>
-      {/* Checkin section
+      {/* Checkin section */}
       <div className="checkin_section active_box" ref={checkinRef}>
         <div className="dates-text">
           <div
@@ -151,7 +151,7 @@ const DatePickerComponent = () => {
       </div>
       <div className="header_divider"></div>
       {/* checkout section */}
-      {/* <div className="checkout_section active_box" ref={checkoutRef}>
+      <div className="checkout_section active_box" ref={checkoutRef}>
         <div className="dates-text">
           <div
             className="checkout_title"
@@ -218,7 +218,7 @@ const DatePickerComponent = () => {
             )}
           </div>
         )}
-      </div> */}
+      </div>
     </>
   );
 };
