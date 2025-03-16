@@ -448,4 +448,47 @@ Search-box Dropdown
   justify-content: center;
 }
 
+/* flexible part */
+
+.flexible-container {
+  padding-bottom: 30px;
+  padding-top: 25px;
+  row-gap: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.stay-option {
+  color: #222222;
+  font-family: "Airbnb Cereal VF Cyril";
+  text-overflow: ellipsis;
+  display: flex;
+  flex-direction: column;
+  flex: 2 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.stay-option h3 {
+  padding: 8px 0 14px;
+}
+.stay-button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.date-option {
+  padding: 11px 16px;
+  border-radius: 50%;
+  border: 1px solid #b0b0b0;
+  background-color: #ffff;
+}
+.date-option :hover {
+  border: 1px solid #222222;
+  cursor: pointer;
+}
+.month-list {
+  display: flex;
+  flex-direction: row;
+}
 /* End of who Drop Down style part */

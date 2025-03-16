@@ -3,6 +3,7 @@ import DatePicker from "./DatePicker";
 import DateOptionBtn from "./DateOption";
 import moment from "moment";
 import close from "/src/asset/icon/close.svg";
+import date from "/src/asset/icon/date.svg";
 
 const DatePickerComponent = () => {
   const [openCheckin, setOpenCheckin] = useState(false);
@@ -15,7 +16,8 @@ const DatePickerComponent = () => {
   const [startDate, setStartDate] = useState<moment.Moment | null>(null);
   const [endDate, setEndDate] = useState<moment.Moment | null>(null);
   const [showDatePicker, setShowDatePicker] = useState(true);
-  const [dateOptionBtn, setDateOptionBtn] = useState<number>(0);
+  const [dateOptionBtn, setDateOptionBtn] = useState<any>(0);
+  const [trueFlexible, setTrueFlexible] = useState();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -34,9 +36,15 @@ const DatePickerComponent = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  const handleOptionClick = (option: string) => {
+    setActiveOption(option);
+    setOpenCheckin(true);
+  };
+
   return (
     <>
-      {/* Checkin section */}
+      {/* Checkin section
       <div className="checkin_section active_box" ref={checkinRef}>
         <div className="dates-text">
           <div
@@ -70,26 +78,19 @@ const DatePickerComponent = () => {
         {openCheckin && (
           <div className="checkin-container">
             <div className="button-contain">
-              {["Dates", "Felexible"].map((Option) => (
+              {["Dates", "Flexible"].map((Option) => (
                 <button
                   key={Option}
                   className={`toggle-option ${
                     activeOption === Option ? "active" : ""
                   }`}
-                  onClick={() => {
-                    setActiveOption(Option);
-                    if (Option === "Dates") {
-                      setShowDatePicker(true);
-                    } else {
-                      setShowDatePicker(false);
-                    }
-                  }}
+                  onClick={() => handleOptionClick(Option)}
                 >
                   {Option}
                 </button>
               ))}
             </div>
-            {showDatePicker && (
+            {activeOption === "Dates" && (
               <>
                 <DatePicker
                   startDate={startDate}
@@ -103,12 +104,54 @@ const DatePickerComponent = () => {
                 />
               </>
             )}
+            {activeOption === "Flexible" && (
+              <div className="flexible-container">
+                <div className="stay-option">
+                  <h3>Stay for a week</h3>
+                  <div className="stay-button">
+                    {["Weekend", "Week", "Month"].map((option) => (
+                      <button
+                        key={option}
+                        className={`date-option ${
+                          dateOptionBtn === option ? "active" : ""
+                        }`}
+                        onClick={() => setDateOptionBtn(Option)}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="month-option">
+                  <h3>Go anytime</h3>
+                  <div className="month-list">
+                    {[
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December",
+                    ].map((month) => (
+                      <div key={month} className="month-item">
+                        <img src={date} />
+                        <span>{month} 2025</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
       <div className="header_divider"></div>
       {/* checkout section */}
-      <div className="checkout_section active_box" ref={checkoutRef}>
+      {/* <div className="checkout_section active_box" ref={checkoutRef}>
         <div className="dates-text">
           <div
             className="checkout_title"
@@ -140,7 +183,7 @@ const DatePickerComponent = () => {
         {openCheckout && (
           <div className="checkin-container">
             <div className="button-contain">
-              {["Dates", "Felexible"].map((Option) => (
+              {["Dates", "Flexible"].map((Option) => (
                 <button
                   key={Option}
                   className={`toggle-option ${
@@ -175,8 +218,9 @@ const DatePickerComponent = () => {
             )}
           </div>
         )}
-      </div>
+      </div> */}
     </>
   );
 };
+
 export default DatePickerComponent;
