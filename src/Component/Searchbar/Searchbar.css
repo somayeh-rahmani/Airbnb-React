@@ -102,6 +102,17 @@ hover searchbox
 .dates-text {
   margin-right: 30px;
 }
+
+
+.when_section {
+  padding: 1rem;
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 .checkout_section,
 .checkin_section {
   padding: 1rem;
@@ -110,6 +121,9 @@ hover searchbox
   justify-content: space-between;
   align-items: center;
 }
+
+
+
 .date_section {
   padding: 1rem 9rem 1rem 1.5rem;
 }

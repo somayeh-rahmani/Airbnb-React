@@ -10,4 +10,4 @@ app.use(express.static("public"));
 app.use("/api/categories", categoriesRouter);
 app.use("/api/rooms", roomsRouter);
 
-ViteExpress.listen(app, 3000, () => console.log("Server is listening..."));
+ViteExpress.listen(app, 3000, () => console.log("Server is listening on 3000 ..."));

@@ -117,6 +117,11 @@ export default function Carousel() {
       </div>
       {/* Rooms */}
       <div id="room_container" className="room_grid">
+        {rooms.length === 0 &&
+          <div>
+            No Room Found!
+          </div>
+        }
         {rooms.map((room) => (
           <div key={room.id} className="room">
             <div className="image_container">
