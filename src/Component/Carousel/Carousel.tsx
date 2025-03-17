@@ -31,6 +31,9 @@ export default function Carousel() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [rooms, setRooms] = useState<Room[]>([]);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [showLeftButton, setShowLeftButton] = useState(false);
+  const [showRightButton, setShowRightButton] = useState(true);
+
   useEffect(() => {
     const loadCategories = async () => {
       const data = await fetchCategories();
@@ -38,6 +41,28 @@ export default function Carousel() {
     };
     loadCategories();
   }, []);
+
+  useEffect(() => {
+    const checkScrollPosition = () => {
+      if (carouselRef.current) {
+        const scrollPosition = carouselRef.current.scrollLeft;
+        const maxScrollWidth =
+          carouselRef.current.scrollWidth - carouselRef.current.clientWidth;
+
+        setShowLeftButton(scrollPosition > 0);
+        setShowRightButton(scrollPosition < maxScrollWidth);
+      }
+    };
+
+    if (carouselRef.current) {
+      carouselRef.current.addEventListener("scroll", checkScrollPosition);
+      checkScrollPosition(); // Initial check
+
+      return () => {
+        carouselRef.current?.removeEventListener("scroll", checkScrollPosition);
+      };
+    }
+  }, [categories]);
 
   const handleCategoryClick = async (categoryId: number) => {
     const roomData = await fetchRooms(categoryId);
@@ -55,7 +80,6 @@ export default function Carousel() {
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      console.log(carouselRef.current);
       carouselRef.current.scrollBy({
         left: carouselRef.current.clientWidth,
         behavior: "smooth",
@@ -68,9 +92,11 @@ export default function Carousel() {
       {/* Categories */}
       <div className="carousel-container">
         <div className="carousel">
-          <button className="prev" onClick={scrollLeft}>
-            <FiChevronLeft size={24} />
-          </button>
+          {showLeftButton && (
+            <button className="prev" onClick={scrollLeft}>
+              <FiChevronLeft size={24} />
+            </button>
+          )}
           <div className="carousel_wrapper" ref={carouselRef}>
             {categories.map((category) => (
               <figure
@@ -83,9 +109,11 @@ export default function Carousel() {
               </figure>
             ))}
           </div>
-          <button className="next" onClick={scrollRight}>
-            <FiChevronRight size={24} />
-          </button>
+          {showRightButton && (
+            <button className="next" onClick={scrollRight}>
+              <FiChevronRight size={24} />
+            </button>
+          )}
         </div>
         <div className="filter_button">
           <button>
@@ -110,18 +138,13 @@ export default function Carousel() {
                 d="M7 16H3m26 0H15M29 6h-4m-8 0H3m26 20h-4M7 16a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM17 6a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 20a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 0H3"
               />
             </svg>
-
             <span>Filters</span>
           </button>
         </div>
       </div>
       {/* Rooms */}
       <div id="room_container" className="room_grid">
-        {rooms.length === 0 &&
-          <div>
-            No Room Found!
-          </div>
-        }
+        {rooms.length === 0 && <div>No Room Found!</div>}
         {rooms.map((room) => (
           <div key={room.id} className="room">
             <div className="image_container">

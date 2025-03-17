@@ -103,7 +103,6 @@ hover searchbox
   margin-right: 30px;
 }
 
-
 .when_section {
   padding: 1rem;
   flex: 2;
@@ -111,8 +110,9 @@ hover searchbox
   justify-content: space-between;
   align-items: center;
 }
-
-
+.checkout_title {
+  white-space: nowrap;
+}
 .checkout_section,
 .checkin_section {
   padding: 1rem;
@@ -121,8 +121,6 @@ hover searchbox
   justify-content: space-between;
   align-items: center;
 }
-
-
 
 .date_section {
   padding: 1rem 9rem 1rem 1.5rem;
@@ -144,6 +142,11 @@ hover searchbox
   color: var(--subtitle-color);
   font-size: var(--font-size-default);
   font-weight: normal;
+}
+.add_guests.subtitle_color {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .search_btn {
@@ -345,6 +348,7 @@ Search-box Dropdown
   color: #222;
   font-weight: 500;
   font-size: 14px;
+  white-space: nowrap;
 }
 /*Drop Down Who */
 .who-container {

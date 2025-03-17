@@ -65,7 +65,8 @@ const Whopart = () => {
     <div
       className="who_section active_box"
       onClick={() => setOpenWho(true)}
-      ref={whoRef}>
+      ref={whoRef}
+    >
       <div className="parent-who" ref={whoRef}>
         <div className="who_content">
           <div className="who_title">Who</div>
@@ -81,7 +82,12 @@ const Whopart = () => {
             onClick={(e) => {
               e.stopPropagation();
               setOpenWho(false);
-            }}>
+              setAdultCount(0);
+              setChildrenCount(0);
+              setInfantCount(0);
+              setPetCount(0);
+            }}
+          >
             <img src={close} alt="close-icon" />
           </div>
         )}
@@ -100,7 +106,8 @@ const Whopart = () => {
                 <button
                   className="decrement"
                   onClick={() => handleDecrement("adult")}
-                  disabled={adultCount <= 0}>
+                  disabled={adultCount <= 0}
+                >
                   <span>
                     <img src={subtrac} />
                   </span>
@@ -109,7 +116,8 @@ const Whopart = () => {
                 <button
                   className="increment"
                   onClick={() => handleIncrement("adult")}
-                  disabled={adultDisabled}>
+                  disabled={adultDisabled}
+                >
                   <span>
                     <img src={plus} />
                   </span>
@@ -125,7 +133,8 @@ const Whopart = () => {
                 <button
                   className="decrement"
                   onClick={() => handleDecrement("children")}
-                  disabled={childrenCount <= 0}>
+                  disabled={childrenCount <= 0}
+                >
                   <span>
                     <img src={subtrac} />
                   </span>
@@ -136,7 +145,8 @@ const Whopart = () => {
                 <button
                   className="increment"
                   onClick={() => handleIncrement("children")}
-                  disabled={childrenDisabled}>
+                  disabled={childrenDisabled}
+                >
                   <span>
                     <img src={plus} />
                   </span>
@@ -152,7 +162,8 @@ const Whopart = () => {
                 <button
                   className="decrement"
                   onClick={() => handleDecrement("infant")}
-                  disabled={infantCount <= 0}>
+                  disabled={infantCount <= 0}
+                >
                   <span>
                     <img src={subtrac} />
                   </span>
@@ -161,7 +172,8 @@ const Whopart = () => {
                 <button
                   className="increment"
                   onClick={() => handleIncrement("infant")}
-                  disabled={infantDisabled}>
+                  disabled={infantDisabled}
+                >
                   <span>
                     <img src={plus} />
                   </span>
@@ -179,7 +191,8 @@ const Whopart = () => {
                 <button
                   className="decrement"
                   onClick={() => handleDecrement("pet")}
-                  disabled={petCount <= 0}>
+                  disabled={petCount <= 0}
+                >
                   <span>
                     <img src={subtrac} />
                   </span>
@@ -188,7 +201,8 @@ const Whopart = () => {
                 <button
                   className="increment"
                   onClick={() => handleIncrement("pet")}
-                  disabled={petDisabled}>
+                  disabled={petDisabled}
+                >
                   <span>
                     <img src={plus} />
                   </span>
